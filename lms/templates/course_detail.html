@@ -72,7 +72,7 @@
                   <tbody>
                     {% for j in i.lesson_set.all %}
                     <tr class="uk-text-muted">
-                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>{{j.lesson}}</a></td>
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson_{{j.pk}}" data-uk-toggle>{{j.lesson}}</a></td>
                       <td><span data-uk-icon="lock"></span></td>
                       <td class="uk-table-shrink">04:24</td>
                     </tr>
@@ -258,7 +258,7 @@
 </div>
 {% for i in object.module_set.all %}
 {% for j in i.lesson_set.all %}
-<div id="lesson" class="uk-flex-top uk-modal-container" data-uk-modal>
+<div id=lesson_{{j.pk}} class="uk-flex-top uk-modal-container" data-uk-modal>
 	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-light uk-background-secondary 
     uk-border-rounded-large">
 		<button class="uk-modal-close-outside" type="button" data-uk-close></button>
