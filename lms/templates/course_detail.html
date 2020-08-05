@@ -257,13 +257,21 @@
   </div>
 </div>
 {% for i in object.module_set.all %}
+
 {% for j in i.lesson_set.all %}
+
 <div id=lesson_{{j.pk}} class="uk-flex-top uk-modal-container" data-uk-modal>
 	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-light uk-background-secondary 
     uk-border-rounded-large">
 		<button class="uk-modal-close-outside" type="button" data-uk-close></button>
     <h2 class="uk-modal-title">{{j.lesson}}</h2>
-      <iframe src="{{j.link}}" width="1000" height="562" data-uk-responsive data-uk-video></iframe>
+    
+    <div id="{{j.video_id}}" class="player"></div>
+    
+      <!--<iframe src="{{j.link}}" width="1000" height="562" data-uk-responsive data-uk-video></iframe>-->
+      <script src="{% static 'js/tube.js' %}"></script>
+
+      
     <div class="uk-margin-top uk-article uk-text-muted">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
         dolore magna aliqua. Ut enim ad minim reprehenderit in voluptate velit esse cillum dolore eu 
@@ -275,7 +283,7 @@
 {% endfor %}
 {% endfor %}
 
-<div class="uk-section uk-section-muted">
+<!--<div class="uk-section uk-section-muted">
   <div class="uk-container">
     <h3>Other Courses You May Like</h3>
     <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-medium-top" data-uk-grid>
@@ -449,6 +457,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 {% endblock %}
 

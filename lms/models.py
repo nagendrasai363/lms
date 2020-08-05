@@ -31,6 +31,7 @@ class Lesson(models.Model):
 	module = models.ForeignKey(Module,on_delete = models.CASCADE)
 	lesson = models.CharField(max_length = 1000)
 	link = models.URLField()
+	video_id = models.CharField(max_length = 11,default = '')
 
 	def __str__(self):
 		return self.lesson
