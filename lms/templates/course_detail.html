@@ -65,17 +65,25 @@
           <h3>Course content</h3>
           {% for i in object.module_set.all %}
           <ul class="uk-margin-top" data-uk-accordion="multiple: true">
-            <li class="uk-open">
-              <a class="uk-accordion-title" href="#">{{i.module}}<span class="uk-align-right uk-margin-remove-bottom">28:56</span></a>
+            <li>
+              <a class="uk-accordion-title" href="#">{{i.module}}<span class="uk-align-right uk-margin-remove-bottom">{{i.duration}}</span></a>
               <div class="uk-accordion-content">
                 <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
                   <tbody>
                     {% for j in i.lesson_set.all %}
-                    <tr class="uk-text-muted">
+                    {% if j.video_id in viewed %}
+                    <tr class="uk-text-primary">
                       <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson_{{j.pk}}" data-uk-toggle>{{j.lesson}}</a></td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td class="uk-table-shrink">04:24</td>
+                      <td><span data-uk-icon="unlock"></span></td>
+                      <td class="uk-table-shrink">{{j.duration}}</td>
                     </tr>
+                    {% else %}
+                    <tr class="uk-text-muted">
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>{{j.lesson}}</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td class="uk-table-shrink">{{j.duration}}</td>
+                    </tr>
+                    {% endif %}
                     {% endfor %}
                                        
                   </tbody>
@@ -232,10 +240,9 @@
           </div>			
           <h3>Tags</h3>
           <div data-uk-margin>
-            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UX</span></a>
-            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Design</span></a>
-            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UI</span></a>
-            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Experience</span></a>          
+            {% for tag in object.get_tags %}
+            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">{{tag}}</span></a>
+            {% endfor %}          
           </div>
           <h3>Share Course</h3>
           <div class="uk-margin">

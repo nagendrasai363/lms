@@ -16,29 +16,40 @@ function onYouTubeIframeAPIReady() {
   
   // create yt players
   playerDivsArr.forEach(function(e, i) { // forEach ...
-    players[i] = new YT.Player(e.id, {
-      videoId: e.id,
+    var iframe_id = e.id;
+    //alert(iframe_id)
+    players[i] = new YT.Player(iframe_id, {
+      videoId: iframe_id,
       width:"100%",
       height:"562",
       events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            //'onReady': onPlayerReady,
+            'onStateChange': function(event){
+                  onPlayerStateChange(event, iframe_id);
+                }
           }
     })
   })
 
   
 }
-function onPlayerReady(event) {
+//function onPlayerReady(event) {
     //
-  }
-function changeBorderColor(playerStatus) {
+ // }
+function onEnded(playerStatus,iframe_id) {
     var color;
     if (playerStatus == -1) {
       color = "#37474F"; // unstarted = gray
     } else if (playerStatus == 0) {
       color = "#FFFF00"; // ended = yellow
-      alert('im ended')
+      //alert(iframe_id)
+      $.ajax({
+        url: "/ajax/onended/",
+        data: {'iframe_id':iframe_id},
+        success: function(data) {
+          alert('ajax works')
+        }
+      })
     } else if (playerStatus == 1) {
       color = "#33691E"; // playing = green
     } else if (playerStatus == 2) {
@@ -49,12 +60,10 @@ function changeBorderColor(playerStatus) {
     } else if (playerStatus == 5) {
       color = "#FF6DOO"; // video cued = orange
     }
-    if (color) {
-      document.getElementById('existing-iframe-example').style.borderColor = color;
-    }
   }
-function onPlayerStateChange(event) {
-    changeBorderColor(event.data);
+function onPlayerStateChange(event,iframe_id) {
+    //alert(iframe_id)
+    onEnded(event.data,iframe_id);
   }
 
 
