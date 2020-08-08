@@ -3,10 +3,13 @@ import time
 
 def ytapi(video_id):
       API_KEY = 'AIzaSyDKfK521g2LPICYT790T3E_1p1ZsLwFNNY'
-      url = "https://www.googleapis.com/youtube/v3/videos?id={}&part=contentDetails&key={}".format(video_id,API_KEY)
-      data = requests.get(url)
-      result = json.loads(data.text)
-      duration = result['items'][0]['contentDetails']['duration']
+      try:
+          url = "https://www.googleapis.com/youtube/v3/videos?id={}&part=contentDetails&key={}".format(video_id,API_KEY)
+          data = requests.get(url)
+          result = json.loads(data.text)
+          duration = result['items'][0]['contentDetails']['duration']
+      except:
+         duration = 'PT0M0S'
       return ytd2s(duration)
 
 def ytd2s(duration):

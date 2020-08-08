@@ -47,7 +47,12 @@ function onEnded(playerStatus,iframe_id) {
         url: "/ajax/onended/",
         data: {'iframe_id':iframe_id},
         success: function(data) {
-          alert('ajax works')
+          //alert(data.get_slug)
+          var myElement = document.getElementById(data.get_slug)
+          var lesson = myElement.innerHTML
+          var link = "#lesson_"+data.next
+          myElement.innerHTML = "<a href="+link+" data-uk-toggle>"+lesson+"</a>"
+          $('#progress').css('width', data.percent + "%");
         }
       })
     } else if (playerStatus == 1) {

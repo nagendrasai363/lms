@@ -2,6 +2,7 @@ from django.db import models
 from authentication.models import MyUser
 from lms.ytd import ytapi,minsec
 import itertools
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -26,6 +27,10 @@ class Course(models.Model):
 
 	def get_tags(self):
 		return self.tags.split(",")
+
+	def lesson_count(self):
+		lesson_list = [i.lesson_set.all().count() for i in Course.objects.get(id = self.id).module_set.all()]
+		return list(itertools.accumulate(lesson_list))[-1]
 
 class Module(models.Model):
 	course = models.ForeignKey(Course,on_delete = models.CASCADE)
@@ -52,6 +57,9 @@ class Lesson(models.Model):
 	def duration(self):
 		return minsec(ytapi(self.video_id))
 
+	def get_slug(self):
+		return slugify(self.lesson,allow_unicode = True)
+
 
 class CourseStatus(models.Model):
 	course = models.ForeignKey(Course,on_delete = models.CASCADE)
@@ -61,3 +69,7 @@ class CourseStatus(models.Model):
 
 	class Meta:
 		verbose_name_plural = "Course Status"
+
+	def percent(self):
+		status = CourseStatus.objects.get(id = self.id)
+		return (status.completed_lessons.all().count()/status.course.lesson_count())*100

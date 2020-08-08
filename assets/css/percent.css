@@ -1,0 +1,16 @@
+.progress-container {
+  margin: 0; 
+  padding: 0;
+  width: 100%;
+  color: #000;
+  background: rgba(0,0,0,.1);
+}
+.progress {
+  margin: 0;
+  padding: 10px 0;
+  color: #800;
+  font-weight: bold;
+  text-align: center;
+  background: lightgreen;
+}
+

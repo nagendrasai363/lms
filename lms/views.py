@@ -39,7 +39,9 @@ class detail(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		user_course = CourseStatus.objects.get(user = self.request.user)
-		context['viewed'] = [i.video_id for i in user_course.completed_lessons.all()]
+		viewed = [i.video_id for i in user_course.completed_lessons.all()]
+		context['viewed'] = viewed
+		context['view_count'] = len(viewed)
 		return context
 
 def onended(request):
@@ -51,4 +53,5 @@ def onended(request):
 		status.current_lesson = current_lesson
 		status.completed_lessons.add(next_lesson)
 		status.save()
-	return JsonResponse()
+		data = {'next':next_lesson.id,'get_slug':next_lesson.get_slug(),'percent':status.percent()}
+	return JsonResponse(data)

@@ -61,8 +61,14 @@
         <div class="uk-article">
           <h3>Description</h3>
           <p>{{object.description}}</p>
+           
+          <h3>Course content </h3>
+          {% widthratio view_count object.lesson_count 100 as percent %}
+          
+          <div class="progress-container">
+          <div id="progress" class="progress" style="width:{{percent}}%;"></div>
+          </div>
 
-          <h3>Course content</h3>
           {% for i in object.module_set.all %}
           <ul class="uk-margin-top" data-uk-accordion="multiple: true">
             <li>
@@ -79,7 +85,7 @@
                     </tr>
                     {% else %}
                     <tr class="uk-text-muted">
-                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>{{j.lesson}}</td>
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><span id={{j.get_slug}}>{{j.lesson}}</span></td>
                       <td><span data-uk-icon="lock"></span></td>
                       <td class="uk-table-shrink">{{j.duration}}</td>
                     </tr>
