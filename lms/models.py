@@ -5,8 +5,14 @@ import itertools
 from django.utils.text import slugify
 
 # Create your models here.
+class Category(models.Model):
+	category = models.CharField(max_length = 100)
+
+	def __str__(self):
+		return self.category
 
 class Course(models.Model):
+	category = models.ForeignKey(Category,on_delete=models.CASCADE,null = True,blank = True)
 	title = models.CharField(max_length = 100)
 	short_description = models.TextField()
 	description = models.TextField()

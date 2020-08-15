@@ -1,5 +1,5 @@
 from django.shortcuts import render,reverse
-from lms.models import Course,Module,Lesson,CourseStatus
+from lms.models import Course,Module,Lesson,CourseStatus,Category
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponseRedirect,JsonResponse
@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect,JsonResponse
 # Create your views here.
 
 def index(request):
-	return render(request,'index.html')
+	category = Category.objects.all()
+	return render(request,'index.html',{'category':category})
 
 def about(request):
 	return render(request,'about-us.html')

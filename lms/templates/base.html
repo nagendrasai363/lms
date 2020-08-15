@@ -1,473 +1,313 @@
 {% load static %}
 
-<!doctype html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Glaxdu - Education Bootstrap 4 Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
-    
-    <!-- CSS
-	============================================ -->
-   
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="{% static 'css/icons.min.css' %}">
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Modernizer JS -->
-    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
-    <!-- Sprin -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/percent.css' %}" />
-    <script src="{% static 'js/uikit.js' %}"></script>
-    
-    
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lms</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-<header class="header-area">
-    <div class="header-top bg-img" style="background-image:url({% static 'img/icon-img/header-shape.png' %});">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-7 col-12 col-sm-8">
-                    <div class="header-contact">
-                        <ul>
-                            <li><i class="fa fa-phone"></i> +98 558 547 589</li>
-                            <li><i class="fa fa-envelope-o"></i><a href="#">education@email.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-5 col-12 col-sm-4">
-                    <div class="login-register">
-                        <ul>
-                            <li><a href="login-register.html">Login</a></li>
-                            <li><a href="login-register.html">Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <!-- Menu Items  -->
+
+  <div class="container-fluid py-1">
+
+    <img src="{% static 'img/headlogo.jpg' %}" class="w-100 d-none d-sm-block">
+    <img src="{% static 'img/mobilehead.jpg' %}" class="w-100 d-block d-sm-none">
+  </div>
+
+  <!-- Secondary Mobile Menu  -->
+  <nav class="navbar sticky-top mobile-menu-height align-items-center" id="mobileMenu">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileMenuItems"
+      aria-controls="mobileMenuItems" aria-expanded="false" aria-lable="Toggle Navigation">
+      <span class=""><i class="fas fa-bars fa-1x"></i></span>
+    </button>
+    <div class="" id="searchBarMobile">
+      <div class="input-group" id="searchGroup">
+          <input type="text" class="form-control" placeholder="Search.." aria-label="Search" aria-describedby="searchIcon">
+          <div class="input-group-append">
+              <span class="input-group-text" id="searchIcon">
+                <i class="fas fa-search"></i>
+              </span>
+          </div>
+      </div>
     </div>
-    <div class="header-bottom sticky-bar clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-6 col-4">
-                    <div class="logo">
-                        <a href="index.html">
-                            <img alt="" src="{% static 'img/logo/logo.png' %}">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-10 col-md-6 col-8">
-                    <div class="menu-cart-wrap">
-                        <div class="main-menu">
-                            <nav>
-                                <ul>
-                                    <li><a href="{% url 'lms:index' %}"> HOME </a>
-                                        <!--<ul class="submenu">
-                                            <li><a href="index.html">home version 1</a></li>
-                                            <li><a href="index-2.html">home version 2</a></li>
-                                            <li><a href="index-3.html">home version 3</a></li>
-                                        </ul>-->
-                                    </li>
-                                    <li><a href="{% url 'lms:about' %}"> ABOUT  </a></li>
-                                    <!--<li class="mega-menu-position top-hover"><a href="shop.html"> SHOP <i class="fa fa-angle-down"></i> </a>
-                                        <ul class="mega-menu">
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Categories 01</a></li>
-                                                    <li><a href="shop.html">bag</a></li>
-                                                    <li><a href="shop.html">Pen</a></li>
-                                                    <li><a href="shop.html">Erasers</a></li>
-                                                    <li><a href="shop.html">Glue sticks</a></li>
-                                                    <li><a href="shop.html">Lunchbox </a></li>
-                                                    <li><a href="shop.html">Pencil box </a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Categories 02</a></li>
-                                                    <li><a href="shop.html">bag</a></li>
-                                                    <li><a href="shop.html">Pen</a></li>
-                                                    <li><a href="shop.html">Erasers</a></li>
-                                                    <li><a href="shop.html">Glue sticks</a></li>
-                                                    <li><a href="shop.html">Lunchbox </a></li>
-                                                    <li><a href="shop.html">Pencil box </a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Categories 03</a></li>
-                                                    <li><a href="shop.html">bag</a></li>
-                                                    <li><a href="shop.html">Pen</a></li>
-                                                    <li><a href="shop.html">Erasers</a></li>
-                                                    <li><a href="shop.html">Glue sticks</a></li>
-                                                    <li><a href="shop.html">Lunchbox </a></li>
-                                                    <li><a href="shop.html">Pencil box </a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="mega-menu-title"><a href="#">Categories 04</a></li>
-                                                    <li><a href="shop.html">bag</a></li>
-                                                    <li><a href="shop.html">Pen</a></li>
-                                                    <li><a href="shop.html">Erasers</a></li>
-                                                    <li><a href="shop.html">Glue sticks</a></li>
-                                                    <li><a href="shop.html">Lunchbox </a></li>
-                                                    <li><a href="shop.html">Pencil box </a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>-->
-                                    <li><a href="#"> PAGES <i class="fa fa-angle-down"></i> </a>
-                                        <ul class="submenu">
-                                            <li><a href="{% url 'lms:course' %}">course page</a></li>
-                                            <li><a href="{% url 'lms:event' %}">event page</a></li>
-                                            <!--<li><a href="shop.html">shop page</a></li>
-                                            <li><a href="course-details.html">course details</a></li>
-                                            <li><a href="event-details.html">event details</a></li>
-                                            <li><a href="single-product.html">single product</a></li>
-                                            <li><a href="cart.html">cart page</a></li>
-                                            <li><a href="checkout.html">checkout</a></li>
-                                            <li><a href="wishlist.html">wishlist</a></li>-->
-                                            <li><a href="login-register.html">login / register</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="{% url 'lms:course' %}"> COURSES / PROGRAMMES</a></li>
-                                    <li><a href="{% url 'lms:blog' %}"> BLOG </a>
-                                        <!--<ul class="submenu">
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
-                                        </ul>-->
-                                    </li>
-                                    <li><a href="{% url 'lms:contact' %}"> CONTACT </a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="cart-search-wrap">
-                            <div class="cart-wrap">
-                                <button class="icon-cart">
-                                    <i class="fa fa-cart-plus"></i>
-                                    <span class="count-style">02</span>
-                                </button>
-                                <div class="shopping-cart-content">
-                                    <ul>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="{% static 'img/cart/cart-1.png' %}"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Color Box </a></h4>
-                                                <h6>Qty: 02</h6>
-                                                <span>$260.00</span>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                        </li>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="{% static 'img/cart/cart-2.png' %}"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Color Box </a></h4>
-                                                <h6>Qty: 02</h6>
-                                                <span>$260.00</span>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-total">
-                                        <h4>Shipping : <span>$20.00</span></h4>
-                                        <h4>Total : <span class="shop-total">$260.00</span></h4>
-                                    </div>
-                                    <div class="shopping-cart-btn">
-                                        <a class="default-btn btn-hover" href="{% url 'lms:cart' %}">view cart</a>
-                                        <a class="default-btn btn-hover" href="{% url 'lms:checkout' %}">checkout</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-search">
-                                <button class="search-toggle">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                                <div class="search-content">
-                                    <form action="#">
-                                        <input type="text" placeholder="Search">
-                                        <button>
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-menu-area">
-                <div class="mobile-menu">
-                    <nav id="mobile-menu-active">
-                        <ul class="menu-overflow">
-                            <li><a href="{% url 'lms:index' %}">HOME</a>
-                                <!--<ul>
-                                    <li><a href="index.html">home version 1</a></li>
-                                    <li><a href="index-2.html">home version 2</a></li>
-                                    <li><a href="index-3.html">home version 3</a></li>
-                                </ul>-->
-                            </li>
-                            <li><a href="{% url 'lms:about' %}">About</a></li>
-                            <!--<li><a href="shop.html">Shop</a>
-                                <ul>
-                                    <li><a href="#">Categories 01</a>
-                                        <ul>
-                                            <li><a href="shop.html">bag</a></li>
-                                            <li><a href="shop.html">Pen</a></li>
-                                            <li><a href="shop.html">Erasers</a></li>
-                                            <li><a href="shop.html">Glue sticks</a></li>
-                                            <li><a href="shop.html">Lunchbox </a></li>
-                                            <li><a href="shop.html">Pencil box </a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Categories 02</a>
-                                        <ul>
-                                            <li><a href="shop.html">bag</a></li>
-                                            <li><a href="shop.html">Pen</a></li>
-                                            <li><a href="shop.html">Erasers</a></li>
-                                            <li><a href="shop.html">Glue sticks</a></li>
-                                            <li><a href="shop.html">Lunchbox </a></li>
-                                            <li><a href="shop.html">Pencil box </a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Categories 03</a>
-                                        <ul>
-                                            <li><a href="shop.html">bag</a></li>
-                                            <li><a href="shop.html">Pen</a></li>
-                                            <li><a href="shop.html">Erasers</a></li>
-                                            <li><a href="shop.html">Glue sticks</a></li>
-                                            <li><a href="shop.html">Lunchbox </a></li>
-                                            <li><a href="shop.html">Pencil box </a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Categories 04</a>
-                                        <ul>
-                                            <li><a href="shop.html">bag</a></li>
-                                            <li><a href="shop.html">Pen</a></li>
-                                            <li><a href="shop.html">Erasers</a></li>
-                                            <li><a href="shop.html">Glue sticks</a></li>
-                                            <li><a href="shop.html">Lunchbox </a></li>
-                                            <li><a href="shop.html">Pencil box </a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>-->
-                            <li><a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="{% url 'lms:course' %}">course page</a></li>
-                                    <li><a href="event.html">event page</a></li>
-                                    <!--<li><a href="shop.html">shop page</a></li>
-                                    <li><a href="course-details.html">course details</a></li>
-                                    <li><a href="event-details.html">event details</a></li>
-                                    <li><a href="single-product.html">single product</a></li>
-                                    <li><a href="cart.html">cart page</a></li>
-                                    <li><a href="checkout.html">checkout</a></li>
-                                    <li><a href="wishlist.html">wishlist</a></li>-->
-                                    <li><a href="login-register.html">login / register</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'lms:about' %}">About us</a></li>
-                            <li><a href="{% url 'lms:blog' %}">Blog</a>
-                                <!--<ul>
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                </ul>-->
-                            </li>
-                            <li><a href="{% url 'lms:contact' %}">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
+    <div class="collapse navbar-collapse" id="mobileMenuItems">
+        <ul class="navbar-nav">
+            <li class="nav-item active"> <a class="nav-link" href="{% url 'lms:index' %}">Home </a> </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'lms:about' %}"> About </a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More items  </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                  <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Dropdown right </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                  <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                </ul>
+            </li>
+        
+        </ul>
     </div>
-</header>
-{% block content %}
-{% endblock %}
-<footer class="footer-area">
-    <div class="footer-top bg-img default-overlay pt-130 pb-80" style="background-image:url({% static 'img/bg/bg-4.jpg' %});">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer-widget mb-40">
-                        <div class="footer-title">
-                            <h4>ABOUT US</h4>
-                        </div>
-                        <div class="footer-about">
-                            <p>Ugiat nulla pariatur. Edeserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natu</p>
-                            <div class="f-contact-info">
-                                <div class="single-f-contact-info">
-                                    <i class="fa fa-home"></i>
-                                    <span>Uttara, Dhaka, Bangladesh</span>
-                                </div>
-                                <div class="single-f-contact-info">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span><a href="#">education@email.com</a></span>
-                                </div>
-                                <div class="single-f-contact-info">
-                                    <i class="fa fa-phone"></i>
-                                    <span> +98 558 547 589</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer-widget mb-40">
-                        <div class="footer-title">
-                            <h4>QUICK LINK</h4>
-                        </div>
-                        <div class="footer-list">
-                            <ul>
-                                <li><a href="{% url 'lms:index' %}">Home</a></li>
-                                <li><a href="{% url 'lms:about' %}">About Us</a></li>
-                                <li><a href="{% url 'lms:course' %}">Courses</a></li>
-                                <li><a href="#">Admission</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer-widget negative-mrg-30 mb-40">
-                        <div class="footer-title">
-                            <h4>COURSES</h4>
-                        </div>
-                        <div class="footer-list">
-                            <ul>
-                                <li><a href="#">Under Graduate Programmes </a></li>
-                                <li><a href="#">Graduate Programmes </a></li>
-                                <li><a href="#">Diploma Courses</a></li>
-                                <li><a href="#">Others Programmes</a></li>
-                                <li><a href="#">Short Courses</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="footer-widget mb-40">
-                        <div class="footer-title">
-                            <h4>GALLERY</h4>
-                        </div>
-                        <div class="footer-gallery">
-                            <ul>
-                                <li><a href="#"><img src="{% static 'img/gallery/gallery-1.png' %}" alt=""></a></li>
-                                <li><a href="#"><img src="{% static 'img/gallery/gallery-2.png' %}" alt=""></a></li>
-                                <li><a href="#"><img src="{% static 'img/gallery/gallery-3.png' %}" alt=""></a></li>
-                                <li><a href="#"><img src="{% static 'img/gallery/gallery-4.png' %}" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="footer-widget mb-40">
-                        <div class="footer-title">
-                            <h4>News Letter</h4>
-                        </div>
-                        <div class="subscribe-style">
-                            <p>Dugiat nulla pariatur. Edeserunt mollit anim id est laborum. Sed ut perspiciatis unde</p>
-                            <div id="mc_embed_signup" class="subscribe-form">
-                                <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
-                                    <div id="mc_embed_signup_scroll" class="mc-form">
-                                        <input class="email" type="email" required="" placeholder="Your E-mail Address" name="EMAIL" value="">
-                                        <div class="mc-news" aria-hidden="true">
-                                            <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef">
-                                        </div>
-                                        <div class="clear">
-                                            <input id="mc-embedded-subscribe" class="button" type="submit" name="subscribe" value="SUBMIT">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </nav>
+  <!-- Secondary Menu  -->
+  <nav class="navbar navbar-expand-lg navbar-dark  main-menu" id="desktopMenu">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+
+      <div class="dropdown">
+        <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img src="{% static 'img/cat01.png' %}" class="img-fluid" alt="Responsive image">&nbsp;&nbsp;Categories
+        </a>
+        <ul class="dropdown-menu multi-level mt-2" role="menu" aria-labelledby="dropdownMenu">
+
+          <li class="dropdown-item"><a href="#">Design</a></li>
+
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1" href="#">IT & Software</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a tabindex="-1" href="https://codegnan.com/demo/lmscourse">Second level</a>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item" href="https://codegnan.com/demo/lmscourse">Even More..</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                  <li class="dropdown-submenu"><a class="dropdown-item"
+                      href="https://codegnan.com/demo/lmscourse">another level</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Business</a></li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1" href="#">Electrical</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a tabindex="-1" href="https://codegnan.com/demo/lmscourse">Second level</a>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item" href="https://codegnan.com/demo/lmscourse">Even More..</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                  <li class="dropdown-submenu"><a class="dropdown-item"
+                      href="https://codegnan.com/demo/lmscourse">another level</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1" href="#">Marketing</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a tabindex="-1" href="https://codegnan.com/demo/lmscourse">Second level</a>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item" href="https://codegnan.com/demo/lmscourse">Even More..</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                  <li class="dropdown-submenu"><a class="dropdown-item"
+                      href="https://codegnan.com/demo/lmscourse">another level</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-divider"></li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1" href="#">Development</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a tabindex="-1" href="https://codegnan.com/demo/lmscourse">Second level</a>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item" href="https://codegnan.com/demo/lmscourse">Even More..</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                  <li class="dropdown-submenu"><a class="dropdown-item"
+                      href="https://codegnan.com/demo/lmscourse">another level</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                      <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">4th level</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">3rd level</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+              <li class="dropdown-item"><a href="https://codegnan.com/demo/lmscourse">Second level</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+
+      <form class="form-inline pad">
+        <div class="input-group">
+
+          &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control mysearch"
+            placeholder="what do you want to learn ?" aria-label="Username" aria-describedby="basic-addon1">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" style="font-size:20px"></i></span>
+          </div>
         </div>
+      </form>
+
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#"></a>
+        </li>
+      </ul>
+      <i class="fa fa-shopping-cart" style="font-size:28px;color:white"></i>&nbsp;&nbsp;
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-primary login-btn my-2 my-sm-0" type="submit">Login</button>&nbsp;&nbsp;
+        <button class="btn btn-outline-primary  login-btn my-2 my-sm-0" type="submit">Register</button>
+      </form>
     </div>
-    <div class="footer-bottom pt-15 pb-15">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-12">
-                    <div class="copyright">
-                        <p>
-                            Copyright ©
-                            <a href="#">GLAXDU</a>
-                            . All Right Reserved.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-12">
-                    <div class="footer-menu-social">
-                        <div class="footer-menu">
-                            <ul>
-                                <li><a href="#">Privecy & Policy</a></li>
-                                <li><a href="#">Terms & Conditions of Use</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-social">
-                            <ul>
-                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </nav>
+  {% block content %}
+
+  {% endblock %}
+  <section>
+    <h2 class="text-uppercase headcolor mb-2 mb-md-3 mt-5  text-center">Programs Created in Collaboration with </h2>
+
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3">
+          <img src="{% static 'img/mc.png' %}" class="img-fluid mt-5" alt="Responsive image">
         </div>
+        <div class="col-md-3">
+          <img src="{% static 'img/hp.png' %}" class="img-fluid mt-5" alt="Responsive image">
+        </div>
+        <div class="col-md-3">
+          <img src="{% static 'img/mc.png' %}" class="img-fluid mt-5" alt="Responsive image">
+        </div>
+        <div class="col-md-3">
+          <img src="{% static 'img/hp.png' %}" class="img-fluid mt-5" alt="Responsive image">
+        </div>
+      </div>
     </div>
-</footer>
+  </section>
 
+  <!--footer-->
+  <section class="student">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <img src="{% static 'img/logo.png' %}" class="mt-5 img-fluid  footlogo " alt="Responsive image"><br><br>
+          <div class="social">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-youtube"></a>
+          </div>
+        </div>
+        <div class="col-md-3 mt-5">
+          <ul class="lifoot">
+            <h5 class="foothead">Master Courses</h5>
+            <li>Data science</li>
+            <li>Artificial Intelligence</li>
+            <li>Big Data</li>
+            <li>Cloud and DevOps</li>
+            <li>Hadoop Training</li>
+          </ul>
+        </div>
+        <div class="col-md-3 mt-5">
+          <ul class="lifoot">
+            <h5 class="foothead">Courses</h5>
+            <li>Data science</li>
+            <li>Artificial Intelligence</li>
+            <li>Big Data</li>
+            <li>Cloud and DevOps</li>
+            <li>Hadoop Training</li>
+          </ul>
+        </div>
+        <div class="col-md-3 mt-5">
+          <ul class="lifoot">
+            <h5 class="foothead">Special Courses</h5>
+            <li>Data science</li>
+            <li>Artificial Intelligence</li>
+            <li>Big Data</li>
+            <li>Cloud and DevOps</li>
+            <li>Hadoop Training</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col pb-3 text-center mt-5">
+          <p class="text-uppercase copy">APSSDC | All rights reserved | Copyright © 2020</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- JS
-============================================ -->
-
-<!-- jQuery JS -->
-<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
-<!-- Popper JS -->
-<script src="{% static 'js/popper.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<!-- Plugins JS -->
-<script src="{% static 'js/plugins.js' %}"></script>
-<!-- Ajax Mail -->
-<script src="{% static 'js/ajax-mail.js' %}"></script>
-<!-- Main JS -->
-<script src="{% static 'js/main.js' %}"></script>
-
+    <!-- script  -->
+    <script src="https://kit.fontawesome.com/a01bd6bffe.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>

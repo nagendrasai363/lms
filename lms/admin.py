@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from lms.models import Course,Module,Lesson,CourseStatus
+from lms.models import Course,Module,Lesson,CourseStatus,Category
 
 import nested_admin
 
@@ -19,3 +19,5 @@ class CourseAdmin(nested_admin.NestedModelAdmin):
 admin.site.register(CourseStatus)
 
 admin.site.register(Course, CourseAdmin)
+
+admin.site.register(Category)
